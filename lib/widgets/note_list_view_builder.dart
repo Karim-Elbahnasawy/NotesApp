@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_note_item.dart';
+import '../cubits/cubit/notes_cubit.dart';
 
 class NotesListViewBuilder extends StatelessWidget {
   const NotesListViewBuilder({super.key});
@@ -19,7 +19,9 @@ class NotesListViewBuilder extends StatelessWidget {
               itemCount: notes.length,
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
-                return const CustomNoteItem();
+                return CustomNoteItem(
+                  note: notes[index],
+                );
               }),
         );
       },

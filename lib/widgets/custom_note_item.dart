@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/models/note_model.dart';
 import '../views/edit_note_view.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({super.key});
+  const CustomNoteItem({super.key, required this.note});
+  final Notemodel note;
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +22,18 @@ class CustomNoteItem extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
           decoration: BoxDecoration(
-            color: const Color(0xffFFCCB0),
+            color: Color(note.color),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ListTile(
-                title: const Padding(
+                title: Padding(
                   padding: EdgeInsets.only(bottom: 16),
                   child: Text(
-                    'Flutter Tips',
-                    style: TextStyle(
+                    note.title,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 26,
                     ),
@@ -40,7 +42,7 @@ class CustomNoteItem extends StatelessWidget {
                 subtitle: Padding(
                   padding: const EdgeInsets.only(bottom: 16),
                   child: Text(
-                    'Build Your Career With Karim',
+                    note.subTitle,
                     style: TextStyle(
                       color: Colors.black.withOpacity(0.6),
                       fontSize: 18,
@@ -59,7 +61,7 @@ class CustomNoteItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 24),
                 child: Text(
-                  'May 20, 2022',
+                  note.date,
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.6),
                     fontSize: 16,
