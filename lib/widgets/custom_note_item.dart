@@ -30,7 +30,7 @@ class CustomNoteItem extends StatelessWidget {
             children: [
               ListTile(
                 title: Padding(
-                  padding: EdgeInsets.only(bottom: 16),
+                  padding: const EdgeInsets.only(bottom: 16),
                   child: Text(
                     note.title,
                     style: const TextStyle(
